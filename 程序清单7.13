@@ -1,0 +1,46 @@
+//传递结构的地址
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+struct polar
+{
+	double distance;
+	double angle;
+};
+
+struct rect
+{
+	double x;
+	double y;
+};
+
+polar rect_to_polar(rect*);
+void show_polar(polar*);
+
+void main()
+{
+	rect input;
+	cout << "enter the x and y valuies: ";
+	while (cin >> input.x >> input.y) {
+		polar output = rect_to_polar(&input);
+		show_polar(&output);
+		cout << "Next two numbers (q to quite): ";
+	}
+}
+
+polar rect_to_polar(rect *input)
+{
+	polar out;
+	out.distance = sqrt(input->x*input->x + input->y*input->y);
+	out.angle = atan2(input->y, input->x);
+	return out;
+}
+
+void show_polar(polar *input)
+{
+	cout << "distance = " << input->distance << ", ";
+	cout << "angle = " << input->angle*57.29577951 << " degrees.";
+	cout << endl;
+}
