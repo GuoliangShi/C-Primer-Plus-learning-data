@@ -1,0 +1,32 @@
+//返回c风格字符串的函数
+#include<iostream>
+
+using namespace std;
+
+char *build_str(unsigned, char);
+
+void main()
+{
+	char c;
+	unsigned n;
+	cout << "Enter a charater:";
+	cin >> c;
+	cout << "Enter a interger:";
+	cin >> n;
+	char *ptr = build_str(n, c);
+	cout << ptr << endl;
+	delete[] ptr;
+	ptr = build_str(20, '+');
+	cout << ptr << endl;
+	delete[] ptr;
+}
+
+char *build_str(unsigned n, char c)
+{
+	char *ptr = new char[n + 1];
+	ptr[n] = '\0';
+	while (n-- > 0) {
+		ptr[n] = c;
+	}
+	return ptr;
+}
