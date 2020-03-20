@@ -1,0 +1,35 @@
+//传递和返回结构
+#include<iostream>
+
+using namespace std;
+
+struct travel_time
+{
+	unsigned int hour;
+	unsigned int mins;
+};
+
+travel_time time_sum(travel_time, travel_time);
+void show_time(travel_time);
+
+void main()
+{
+	travel_time time1 = { 5, 45 };
+	travel_time time2 = { 4,55 };
+	travel_time sum = time_sum(time1, time2);
+	show_time(sum);
+}
+
+travel_time time_sum(travel_time time1, travel_time time2)
+{
+	travel_time out;
+	out.hour = time1.hour + time2.hour + (time1.mins + time2.mins) / 60;
+	out.mins = (time1.mins + time2.mins) % 60;
+	return out;
+}
+
+void show_time(travel_time time)
+{
+	cout << "Two-days total: " << time.hour << "hours, ";
+	cout << time.mins << " minutes." << endl;
+}
