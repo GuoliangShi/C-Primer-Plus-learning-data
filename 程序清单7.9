@@ -1,0 +1,25 @@
+#include<iostream>
+
+using namespace std;
+
+unsigned int c_in_str(const char *, char);
+
+void main()
+{
+	char str1[] = "dcwefergewacvsdf";
+	char * str2 = "devbssaccdasfbv";
+	unsigned int out1 = c_in_str(str1, 'a');
+	unsigned int out2 = c_in_str(str2, 'd');
+	cout << out1 << "\t" << out2 << endl;
+}
+
+unsigned int c_in_str(const char * str, char c)
+{
+	int count = 0;
+	while (*str) {
+		if (*str == c)
+			count++;
+		str++;
+	}
+	return count;
+}
