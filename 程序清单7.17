@@ -1,0 +1,36 @@
+//包含多个递归调用的递归
+#include<iostream>
+
+using namespace std;
+
+const unsigned int len = 66;
+const unsigned int divs = 6;
+
+void divide(char arr[], int low, int hight, int leave);
+
+void main()
+{
+	char arr[len];
+	for (int i = 1; i < len - 2; i++)
+		arr[i] = ' ';
+	arr[len - 1] = '\0';
+	int low = 0, hight = len - 2;
+	arr[low] = arr[hight] = '|';
+	cout << arr << endl;
+	for (int j = 0; j < divs; j++) {
+		divide(arr, low, hight, j);
+		cout << arr << endl;
+		for (int k = 1; k < len - 2; k++)
+			arr[k] = ' ';
+	}
+}
+
+void divide(char arr[], int low, int hight, int leave)
+{
+	if (leave == 0)
+		return;
+	int mid = (low + hight) / 2;
+	arr[mid] = '|';
+	divide(arr, low, mid, leave - 1);
+	divide(arr, mid, hight, leave - 1);
+}
