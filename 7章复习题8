@@ -1,0 +1,26 @@
+//字符串字符替换
+#include<iostream>
+
+using namespace std;
+
+int replace(char*, char, char);
+
+void main()
+{
+	char str[] = "ceafvavaev";
+	int time = replace(str, 'a', 'c');
+	cout << str << '\t' << time << endl;
+}
+
+int replace(char* str, char c1, char c2)
+{
+	int time = 0;
+	while (*str) {
+		if (*str == c1) {
+			*str = c2;
+			time++;
+		}
+		str++;
+	}
+	return time;
+}
