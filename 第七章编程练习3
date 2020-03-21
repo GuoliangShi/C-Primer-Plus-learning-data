@@ -1,0 +1,37 @@
+//第七章编程练习3
+#include<iostream>
+
+using namespace std;
+
+struct box
+{
+	char maker[40];
+	float height;
+	float width;
+	float length;
+	float voluem;
+};
+
+void show(box);
+void cal(box *);
+
+void main()
+{
+	box input = { "test1",2.35,5.26,4.93 };
+	show(input);
+	cal(&input);
+}
+
+void show(box input)
+{
+	cout << "maker: " << input.maker << " ";
+	cout << "height: " << input.height << " ";
+	cout << "width: " << input.width << " ";
+	cout << "length: " << input.length << "\n";
+}
+
+void cal(box *input)
+{
+	input->voluem = input->height*input->length*input->width;
+	cout << "volume: " << input->voluem << endl;
+}
