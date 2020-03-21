@@ -37,3 +37,4 @@ void show(array<double, season> out)
 	}
 	cout << "Total: $" << total << endl;
 }
+ 
