@@ -1,0 +1,60 @@
+//第七章编程练习题6
+#include<iostream>
+
+using namespace std;
+const unsigned int max_num = 10;
+
+int fill(double[], int);
+void show(const double[], int);
+void reverse(double[], int);
+
+void main()
+{
+	double arr[max_num];
+	int n = fill(arr, max_num);
+	cout << "********************" << endl;
+	show(arr, n);
+	cout << "Before reverse: ";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+	reverse(arr, n);
+	cout << "After reverse: ";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+
+int fill(double arr[], int n)
+{
+	double temp;
+	int num = 0;
+	for (int i = 0; i < n; i++) {
+		cout << "input " << i + 1 << " numbers (q to quite): ";
+		if (cin >> temp) {
+			arr[i] = temp;
+			num++;
+		}
+		else
+			break;
+	}
+	return num;
+}
+
+void show(const double arr[], int n)
+{
+	for (int i = 0; i < n; i++) {
+		cout << "number " << i + 1 << " is: " << arr[i] << endl;
+	}
+}
+
+void reverse(double arr[], int n)
+{
+	int time = n / 2;
+	for (int i = 0; i < time; i++) {
+		double temp = arr[i];
+		arr[i] = arr[n - 1 - i];
+		arr[n - 1 - i] = temp;
+	}
+}
+
