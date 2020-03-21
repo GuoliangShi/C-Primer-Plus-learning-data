@@ -1,0 +1,40 @@
+//结构体函数调用的两种方法
+#include<iostream>
+
+using namespace std;
+
+struct applicant
+{
+	char name[30];
+	int number[3];
+};
+
+void show(applicant);
+void show(applicant *);
+
+void main()
+{
+	applicant test1 = { "xdwedcwe",{0,1,2} };
+	cout << "case 1: \n";
+	show(test1);
+	cout << "case 2: \n";
+	show(&test1);
+}
+
+void show(applicant input)
+{
+	cout << "Name is: " << input.name << " and number is: ";
+	for (int i = 0; i < 3; i++) {
+		cout << input.number[i] << " ";
+	}
+	cout << endl;
+}
+
+void show(applicant *input)
+{
+	cout << "Name is: " << input->name << " and number is: ";
+	for (int i = 0; i < 3; i++) {
+		cout << input->number[i] << " ";
+	}
+	cout << endl;
+}
