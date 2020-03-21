@@ -1,0 +1,35 @@
+//函数指针示例
+#include<iostream>
+
+using namespace std;
+
+double f1(int code);
+double f2(int coed);
+
+void estimate(int code, double(*pf)(int));
+
+void main()
+{
+	int code;
+	cout << "How many lines of code do you need? ";
+	cin >> code;
+	cout << "Here is the f1 estimate: \n";
+	estimate(code, f1);
+	cout << "Here is the f2 estimate: \n";
+	estimate(code, f2);
+}
+
+double f1(int code)
+{
+	return 0.05*code;
+}
+
+double f2(int code)
+{
+	return 0.03*code + 0.0004*code*code;
+}
+
+void estimate(int code, double(*pf)(int))
+{
+	cout << code << " lines will take " << pf(code) << " hour(s)" << endl;
+}
