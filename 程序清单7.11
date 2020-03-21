@@ -33,3 +33,4 @@ void show_time(travel_time time)
 	cout << "Two-days total: " << time.hour << "hours, ";
 	cout << time.mins << " minutes." << endl;
 }
+ 
