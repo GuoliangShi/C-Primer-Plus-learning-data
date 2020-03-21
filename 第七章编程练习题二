@@ -1,0 +1,48 @@
+//第七章编程练习题二
+#include<iostream>
+
+using namespace std;
+const unsigned int max_num = 10;
+
+int input(int[], int);
+void show(int[], int);
+double average(int[], int);
+
+void main()
+{
+	int arr[max_num];
+	int n = input(arr, max_num);
+	show(arr, n);
+	double out = average(arr, n);
+	cout << "The average score of all sports is: " << out << endl;
+}
+
+int input(int arr[], int n)
+{
+	int tempet, time = 0;
+	for (int i = 0; i < n; i++) {
+		cout << "Please input the " << i << " score (q to quite): ";
+		if (cin >> tempet) {
+			arr[i] = tempet;
+			time++;
+		}
+		else
+			break;
+	}
+	return time;
+}
+
+void show(int arr[], int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << "Score " << i << " is:" << arr[i] << endl;
+}
+
+double average(int arr[], int n) 
+{
+	double out = 0;
+	for (int i = 0; i < n; i++) {
+		out += arr[i];
+	}
+	return out / n;
+}
