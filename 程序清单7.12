@@ -44,3 +44,4 @@ void show_polar(polar input)
 	cout << "angle = " << input.angle*57.29577951 << " degrees.";
 	cout << endl;
 }
+ 
