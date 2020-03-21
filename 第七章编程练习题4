@@ -1,0 +1,25 @@
+//第七章编程练习题4
+#include<iostream>
+
+using namespace std;
+
+const unsigned int num_first = 47;
+const unsigned int num_second = 27;
+const unsigned int num_choose = 5;
+
+double pro(int, int, int);
+
+void main()
+{
+	double out = pro(num_first, num_second, num_choose);
+	cout << out << endl;
+}
+
+double pro(int num_first, int num_second, int num_choose)
+{
+	double output = 1.0;
+	for (int i = 0; i < num_choose ; i++) {
+		output = output*((i + 1.0) / (num_first - i));
+	}
+	return output*(1.0 / num_second);
+}
