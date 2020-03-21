@@ -1,0 +1,39 @@
+//函数与array对象
+#include<iostream>
+#include<array>
+#include<string>
+
+using namespace std;
+
+const unsigned season = 4;
+
+const array<string, season> snames = {"spring","summer","fall","winter"};
+
+void fill(array<double, season> *pa);
+void show(array<double, season> out);
+
+void main()
+{
+	array<double, season> input;
+	fill(&input);
+	show(input);
+}
+
+void fill(array<double, season> *pa)
+{
+	for (int i = 0; i < season; i++) {
+		cout << "Enter " << snames[i] << " expenses: ";
+		cin >> (*pa)[i];
+	}
+}
+
+void show(array<double, season> out)
+{
+	cout << "EXPENSES\n";
+	double total = 0;
+	for (int i = 0; i < season; i++) {
+		cout << snames[i] << ": $" << out[i] << endl;
+		total += out[i];
+	}
+	cout << "Total: $" << total << endl;
+}
