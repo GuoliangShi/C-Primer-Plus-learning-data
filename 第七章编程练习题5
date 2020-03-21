@@ -1,0 +1,24 @@
+//第七章编程练习题5
+#include<iostream>
+
+using namespace std;
+
+int fac(int);
+
+void main()
+{
+	cout << "input a number (q to quilt): ";
+	int n;
+	while (cin >> n) {
+		cout << n << "! = " << fac(n) << endl;
+		cout << "input a number (q to quilt): ";
+	}
+}
+
+int fac(int n)
+{
+	if (n == 0)
+		return 1;
+	else
+		return n*fac(n - 1);
+}
