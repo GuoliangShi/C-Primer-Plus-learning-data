@@ -1,0 +1,15 @@
+//内联函数
+#include<iostream>
+
+using namespace std;
+
+inline int fac(int n) { return n*n; }
+
+void main()
+{
+	double n;
+	cout << "Input a int number: ";
+	cin >> n;
+	cout << "Number square is: ";
+	cout << fac(n) << endl;
+}
