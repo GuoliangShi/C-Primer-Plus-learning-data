@@ -1,4 +1,4 @@
-//函数指针示例
+//函数指针示例 
 #include<iostream>
 
 using namespace std;
