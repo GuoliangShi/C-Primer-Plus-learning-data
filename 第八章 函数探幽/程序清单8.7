@@ -1,0 +1,46 @@
+//将引用用于类对象
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+const string version1(const string &s1, const string &s2);
+const string &version2(string &s1, const string &s2);
+const string &version3(const string &s1, const string &s2);
+
+void main()
+{
+	string input;
+	cout << "Enter a string: ";
+	getline(cin, input);
+
+	cout << "Your original string: " << input << endl;
+	cout << "Your string enhanced: " << version1(input, "***") << endl;
+
+	cout << "Your original string: " << input << endl;
+	cout << "Your string enhanced: " << version2(input, "###") << endl;
+
+	cout << "Your original string: " << input << endl;
+	const string out = version3(input, "$$$");        //引用一个会被消灭的对象
+	cout << "Your string enhanced: " << out << endl;
+}
+
+const string version1(const string &s1, const string &s2)
+{
+	string temp;
+	temp = s2 + s1 + s2;
+	return temp;
+}
+
+const string &version2(string &s1, const string &s2)
+{
+	s1 = s2 + s1 + s2;
+	return s1;
+}
+
+const string &version3(const string &s1, const string &s2)
+{
+	string temp;
+	temp = s2 + s1 + s2;
+	return temp;
+}
