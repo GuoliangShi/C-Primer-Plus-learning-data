@@ -1,0 +1,46 @@
+//按值传递，按指针传递，按引用传递
+#include<iostream>
+using namespace std;
+
+void swapr(int&, int&);
+void swapp(int*, int*);
+void swapv(int, int);
+
+void main()
+{
+	int v1 = 100, v2 = 200;
+	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
+	cout << "swap methed 1" << endl;
+	swapr(v1, v2);
+	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
+
+	cout << "swap methed 2" << endl;
+	swapp(&v1, &v2);
+	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
+
+	cout << "swap methed 3" << endl;
+	swapv(v1, v2);
+	cout << "v1 = " << v1 << " v2 = " << v2 << endl;
+
+}
+
+void swapr(int &v1, int &v2)
+{
+	int temp = v1;
+	v1 = v2;
+	v2 = temp;
+}
+
+void swapp(int *v1, int *v2)
+{
+	int temp = *v1;
+	*v1 = *v2;
+	*v2 = temp;
+}
+
+void swapv(int v1, int v2)
+{
+	int temp = v1;
+	v1 = v2;
+	v2 = temp;
+}
