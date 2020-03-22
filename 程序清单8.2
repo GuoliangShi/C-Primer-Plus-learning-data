@@ -1,0 +1,13 @@
+//创建引用变量
+#include<iostream>
+
+using namespace std;
+
+void main()
+{
+	int original = 100;
+	int &later = original;
+	cout << "original = " << original << " later = " << later << endl;
+	later = 200;
+	cout << "original = " << original << " later = " << later << endl;
+}
