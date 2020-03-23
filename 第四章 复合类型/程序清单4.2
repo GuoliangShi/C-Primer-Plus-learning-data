@@ -1,0 +1,19 @@
+//在数组中使用字符串
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+
+void main()
+{
+	const int len = 15;
+	char name1[len];
+	char name2[len] = "C++owboy";
+	cout << "Hellow! I am " << name2 << "! What is your name?" << endl;
+	cin >> name1;
+	cout << name1 << " has " << strlen(name1) << " lettres." << endl;
+	cout << "in an array of " << sizeof(name1) << " bytes." << endl;
+	cout << "Your initial is " << name1[0] << endl;
+	name2[3] = '\0';
+	cout << "Here are the first 3 characters of my name: " << name2 << endl;
+}
