@@ -1,0 +1,50 @@
+//函数重载
+#include<iostream>
+
+using namespace std;
+
+char *left(const char *arr, int n = 1);
+unsigned long left(unsigned long num, int n = 1);
+
+void main()
+{
+	char arr[] = "Hawaii!!";
+	unsigned long num = 12345678;
+	for (int i = 1; i < 10; i++) {
+		cout << left(num, i) << endl;
+		char * temp = left(arr, i);
+		cout << temp << endl;
+		delete[] temp;
+	}
+}
+
+char *left(const char *arr, int n)
+{
+	if (n < 0)
+		n = 0;
+	char *temp = new char[n + 1];
+	int i;
+	for (i = 0; i < n&&arr[i]; i++)
+		temp[i] = arr[i];
+	while (i <= n)
+		temp[i++] = '\0';
+	return temp;
+}
+
+unsigned long left(unsigned long num, int n)
+{
+	unsigned long out = num;
+	if (num == 0 || n == 0)
+		return 0;
+	int time = 1;
+	while (num /= 10)
+		time++;
+	if (time > n) {
+		int time2 = time - n;
+		while (time2--)
+			out /= 10;
+		return out;
+	}
+	else
+		return out;
+}
