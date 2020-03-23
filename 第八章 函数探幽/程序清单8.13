@@ -1,0 +1,49 @@
+//显示具体化
+#include<iostream>
+
+using namespace std;
+
+struct job
+{
+	char name[40];
+	double salary;
+	int floor;
+};
+
+template<typename T>
+void Swap(T &, T &);
+
+template<> void Swap(job &, job &);
+
+void show(const job &);
+
+void main()
+{
+	job job1 = { "job1",5210,10 }, job2 = {"job2",3256,8};
+	show(job1); show(job2);
+	Swap(job1, job2);
+	cout << "After swap: " << endl;
+	show(job1); show(job2);
+}
+
+template<typename T>
+void Swap(T &num1, T &num2)
+{
+	T temp;
+	temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+
+template<> void Swap(job &num1, job &num2)
+{
+	double temp;
+	temp = num1.salary;
+	num1.salary = num2.salary;
+	num2.salary = temp;
+}
+
+void show(const job &input)
+{
+	cout << input.name << " " << input.salary << " " << input.floor << endl;
+}
