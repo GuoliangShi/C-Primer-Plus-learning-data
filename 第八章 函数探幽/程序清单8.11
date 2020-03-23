@@ -1,0 +1,37 @@
+//函数模板
+#include<iostream>
+
+using namespace std;
+
+template <typename T>
+void Swap(T &, T &);
+
+void main()
+{
+	int a, b;
+	double x, y;
+	char s, t;
+	cout << "Input two int data: ";
+	cin >> a >> b;
+	Swap(a, b);
+	cout << "Change order: " << a << " " << b << endl;
+
+	cout << "Input two double data: ";
+	cin >> x >> y;
+	Swap(x, y);
+	cout << "Change order: " << x << " " << y << endl;
+
+	cout << "Input two char data: ";
+	cin >> s >> t;
+	Swap(s, t);
+	cout << "Change order: " << s << " " << t << endl;
+}
+
+template <typename T>
+void Swap(T &a, T &b)
+{
+	T temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
