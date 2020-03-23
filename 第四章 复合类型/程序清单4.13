@@ -1,0 +1,21 @@
+//结构体数组
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+struct gifts
+{
+	string name;
+	float value;
+};
+
+void main()
+{
+	gifts data[2] = {
+		{"cdwa",653.2},
+		{"cedc",6498.2}
+	};
+	cout << data[0].name << " " << data[0].value << endl;
+	cout << data[1].name << " " << data[1].value << endl;
+}
