@@ -1,0 +1,17 @@
+//混合输入数字和字符串的问题
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+
+void main()
+{
+	int year;
+	char address[80];
+	cout << "What year was your house built? " << endl;
+	(cin >> year).get();
+	cout << "what is its street adress?\n";
+	cin.getline(address, 80);
+	cout << "Your build: " << year << endl;
+	cout << "Address: " << address << endl;
+}
