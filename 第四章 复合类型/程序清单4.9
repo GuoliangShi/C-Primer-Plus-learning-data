@@ -1,0 +1,22 @@
+//c风格字符串与string对象赋值拷贝连接对比
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+void main()
+{
+	char charr1[20] = "Shi";
+	char charr2[20] = "Guoliang";
+	char charr3[20];
+	string str1 = "Shi";
+	string str2 = "Guoliang";
+	string str3;
+
+	strcpy(charr3, charr2);
+	str3 = str2;
+	cout << strcat(charr1, charr2) << endl;
+	cout << str1 + str2 << endl;
+	cout << strlen(charr3) << endl;
+	cout << str3.size() << endl;
+}
