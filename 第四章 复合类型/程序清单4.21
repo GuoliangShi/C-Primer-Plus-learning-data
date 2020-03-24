@@ -1,0 +1,22 @@
+//使用new创建动态结构
+#include<iostream>
+
+using namespace std;
+
+struct goods
+{
+	char name[20];
+	double price;
+};
+
+void main()
+{
+	goods *p = new goods;
+	cout << "Enter the goods name: ";
+	cin.getline(p->name, 20);
+	cout << "Enter the goods price: ";
+	cin >> (*p).price;
+	cout << "name: " << p->name << endl;
+	cout << "price: " << p->price << endl;
+	delete p;
+}
