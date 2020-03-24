@@ -1,0 +1,27 @@
+//new和delete示例
+#include<iostream>
+
+using namespace std;
+
+char *pt(void);
+
+void main()
+{
+	char *name;
+	name = pt();
+	cout << name << " at: " << (int *)name << endl;
+	delete [] name;
+
+	name = pt();
+	cout << name << " at: " << (int *)name << endl;
+}
+
+char *pt()
+{
+	cout << "Enter last name: ";
+	char temp[100];
+	cin >> temp;
+	char *out = new char[strlen(temp) + 1];
+	strcpy(out, temp);
+	return out;
+}
