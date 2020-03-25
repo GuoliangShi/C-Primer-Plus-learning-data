@@ -1,0 +1,53 @@
+//编程练习题1
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+char *pt(const char[], const string);
+void show(const char[], char, int);
+
+void main()
+{
+	cout << "What is your first name? " << endl;
+	char first_name[50];
+	cin.getline(first_name, 50);
+	cout << "What is your last name? " << endl;
+	string last_name;
+	cin >> last_name;
+	char *out = pt(first_name, last_name);
+	cout << out << endl;
+	cout << "What letter grade do you deserve? " << endl;
+	char grand;
+	cin >> grand;
+	cout << "What is your age? " << endl;
+	int age;
+	cin >> age;
+	show(out, grand, age);
+}
+
+char *pt(const char arr[], const string str)
+{
+	int len_char = strlen(arr);
+	int len_str = str.size();
+	char *ptr = new char[len_char + len_str + 1];
+	int i;
+	for (i = 0; i < len_str; i++)
+		ptr[i] = str[i];
+	ptr[i] = ',';
+	*(&ptr[i] + 1) = ' ';
+	len_str = len_str + 2;
+	while (*arr) {
+		ptr[len_str++] = *arr;
+		arr++;
+	}
+	ptr[len_char + len_str] = '\0';
+	return ptr;
+}
+
+void show(const char arr[], char grand, int age)
+{
+	cout << "Name: " << arr << endl;
+	cout << "Grade: " << grand << endl;
+	cout << "Age: " << age << endl;
+}
