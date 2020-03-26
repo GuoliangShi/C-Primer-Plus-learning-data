@@ -1,0 +1,19 @@
+// for循环计算阶乘
+#include<iostream>
+
+using namespace std;
+
+const int num = 16;
+
+void main()
+{
+	long long factorials[num];
+	factorials[0] = factorials[1] = 1;
+	for (int i = 2; i < num; i++)
+	{
+		factorials[i] = i*factorials[i - 1];
+	}
+	for (int j = 0; j < num; j++) {
+		cout << j << "! = " << factorials[j] << endl;
+	}
+}
