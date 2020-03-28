@@ -1,0 +1,15 @@
+//c风格字符串的比较
+#include<iostream>
+#include<ctsring>
+
+using namespace std;
+
+void main()
+{
+	char name[4] = "?hi";
+	for (char ch = 'a'; strcmp(name, "shi"); ch++) {
+		cout << name << endl;
+		name[0] = ch;
+	}
+	cout << name << endl;
+}
