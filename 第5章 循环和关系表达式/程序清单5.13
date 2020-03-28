@@ -1,0 +1,16 @@
+//while循环
+#include<iostream>
+
+using namespace std;
+
+void main()
+{
+	char name[20];
+	cout << "Please input your name: ";
+	cin.getline(name, 20);
+	int i = 0;
+	while (name[i] != '\0') {
+		cout << name[i] << ": " << int(name[i]) << endl;
+		++i;
+	}
+}
