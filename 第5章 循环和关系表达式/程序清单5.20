@@ -1,0 +1,32 @@
+//二维数组
+#include<iostream>
+
+using namespace std;
+
+void main()
+{
+	const int city_num = 5;
+	const int year = 4;
+	const char *city[city_num] = {
+		"hubei",
+		"henan",
+		"hunan",
+		"hebei",
+		"sanxi"
+	};
+	const int tempera[year][city_num] = {
+		{96,96,97,98,98},
+		{100,98,101,103,105},
+		{87,91,93,95,97},
+		{101,107,108,109,110}
+	};
+	cout << "Maximum temperatures for 2008 - 2011" << endl;
+	for (int i = 0; i < city_num; i++) {
+		cout << city[i] << ":\t";
+		for (int j = 0; j < year; j++) {
+			cout << tempera[j][i] << "\t";
+		}
+		cout << endl;
+	}
+
+}
