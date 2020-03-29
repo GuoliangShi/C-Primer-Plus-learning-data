@@ -1,0 +1,36 @@
+// cctype
+#include<iostream>
+#include<cctype>
+
+using namespace std;
+
+void main()
+{
+	char temp;
+
+	unsigned int whitespace = 0;
+	unsigned int digits = 0;
+	unsigned int chars = 0;
+	unsigned int punct = 0;
+	unsigned int others = 0;
+	cout << "Enter text for analysis, asnd type @ to teminate input." << endl;
+	cin.get(temp);
+	while (temp != '@') {
+		if (isspace(temp))
+			++whitespace;
+		else if (isdigit(temp))
+			++digits;
+		else if (isalpha)
+			++chars;
+		else if (ispunct)
+			++punct;
+		else
+			++others;
+		cin.get(temp);
+	}
+	cout << whitespace << " whitespace, "
+		<< digits << " digits, "
+		<< chars << " letters, "
+		<< punct << " punctuations, "
+		<< others << " others." << endl;
+}
