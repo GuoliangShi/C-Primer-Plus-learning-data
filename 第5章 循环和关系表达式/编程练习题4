@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+double danli(double input, int year);
+double fuli(double input, int year);
+
+void main()
+{
+	int year = 1;
+	while (danli(100,year) > fuli(100,year)) ++year;
+	cout << "After " << year << " years: " << endl;
+	cout << "Daphne money: " << danli(100, year) << endl;
+	cout << "Cleo money: " << fuli(100, year) << endl;
+}
+
+double danli(double input, int year)
+{
+	double out;
+	out = input + year*input*0.1;
+	return out;
+}
+
+double fuli(double input, int year)
+{
+	double out = input;
+	for (int i = 0; i < year; i++) {
+		out += out*0.05;
+	}
+	return out;
+}
