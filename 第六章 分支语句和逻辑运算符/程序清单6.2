@@ -1,0 +1,19 @@
+// if else 语句
+#include<iostream>
+
+using namespace std;
+
+void main()
+{
+	char temp;
+	cout << "Type, and i shall repeat." << endl;
+	cin.get(temp);
+	while (temp != '.') {
+		if (temp == '\n')
+			cout << temp;
+		else
+			cout << ++temp;
+		cin.get(temp);
+	}
+	cout << endl;
+}
