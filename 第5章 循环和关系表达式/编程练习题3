@@ -1,0 +1,16 @@
+#include<iostream>
+
+using namespace std;
+
+void main()
+{
+	double  num, out = 0;
+	cout << "Please input a number ('0' to quite):";
+	cin >> num;
+	while (num != 0) {
+		out += num;
+		cout << "The sum of all number is: " << out << endl;
+		cout << "Please input a number ('0' to quite):";
+		cin >> num;
+	}
+}
