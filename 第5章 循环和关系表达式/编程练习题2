@@ -1,0 +1,15 @@
+#include<iostream>
+#include<array>
+
+using namespace std;
+
+void main()
+{
+	const int num = 100;
+	array<long double, num> jiechen;
+	jiechen[0] = 1;
+	int i;
+	for (i = 1; i < num - 1; i++)
+		jiechen[i] = i*jiechen[i - 1];
+	cout << num << "! = " << jiechen[i] << endl;
+}
