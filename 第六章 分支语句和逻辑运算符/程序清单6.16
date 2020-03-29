@@ -1,0 +1,35 @@
+//读取文本文件
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+
+using namespace std;
+
+const int Size = 100;
+
+void main()
+{
+	char filename[Size];
+	cout << "Enter name of data file: ";
+	cin.get(filename,Size);
+	ifstream file;
+	file.open(filename);
+	if (!file.is_open()) {
+		cout << "Count not open file name: " << filename << endl;
+		exit(EXIT_FAILURE);
+	}
+
+	double value;
+	double sum = 0.0;
+	int count = 0;
+	file >> value;
+	while (file.good()) {
+		++count;
+		sum += value;
+		file >> value;
+	}
+	cout << "Items read: " << count << endl;
+	cout << "Sum: " << sum << endl;
+	cout << "Average: " << sum / count << endl;
+	file.close();
+}
