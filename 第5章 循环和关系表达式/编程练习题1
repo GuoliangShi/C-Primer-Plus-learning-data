@@ -1,0 +1,25 @@
+#include<iostream>
+
+using namespace std;
+
+int calcu(int a, int b);
+
+void main()
+{
+	cout << "Please input two numbers: ";
+	unsigned int a, b;
+	cin >> a >> b;
+	int out = calcu(a, b);
+	cout << "The sum is: " << out << endl;
+}
+
+int calcu(int a, int b)
+{
+	if (a > b) swap(a, b);
+	int out = 0;
+	while (a <= b) {
+		out += a;
+		++a;
+	}
+	return out;
+}
