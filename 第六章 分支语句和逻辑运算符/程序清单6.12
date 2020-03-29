@@ -1,0 +1,26 @@
+//break和continnue
+#include<iostream>
+
+using namespace std;
+
+const int num = 100;
+
+void main()
+{
+	char arr[num];
+	cout << "Enter a line of text: \n";
+	cin.get(arr, num);
+	cout << "Complete line: \n";
+	cout << arr << endl;
+	int count = 0;
+	cout << "Line through first period:\n";
+	for (int i = 0; arr[i] != '\0'; ++i) {
+		cout << arr[i];
+		if (arr[i] == '.')
+			break;
+		if (arr[i] != ' ')
+			continue;
+		count++;
+	}
+	cout << "\n" << count << " spaces.\nDone." << endl;
+}
