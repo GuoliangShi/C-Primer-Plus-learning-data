@@ -1,0 +1,30 @@
+//写入到文本文件中
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+
+void main()
+{
+	ofstream film;
+	film.open("C:/Users/13427/Desktop/test.txt");
+
+	cout << "Enter the make and model of automobile: ";
+	char name[20];
+	cin.get(name, 20);
+	cout << "Enter the model year: ";
+	int year;
+	cin >> year;
+	cout << "Enter the original asking price: ";
+	double o_price;
+	cin >> o_price;
+	double a_price = 0.913*o_price;
+
+	cout.precision(4);
+	film << "Make and model: " << name << endl;
+	film << "Year: " << year << endl;
+	film << "Original price: " << o_price << endl;
+	film << "Asking price: " << a_price << endl;
+
+	film.close();
+}
