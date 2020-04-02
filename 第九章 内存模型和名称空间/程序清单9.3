@@ -1,0 +1,17 @@
+//file2.cpp
+#include<iostream>
+#include<cmath>
+#include"coordin.h"
+
+polar rect_polar(rect input) {
+	polar out;
+	const double rad_to_deg = 57.29577951;
+	out.distance = sqrt(pow(input.x, 2) + pow(input.y, 2));
+	out.angle = atan2(input.y, input.x)*rad_to_deg;
+	return out;
+}
+
+void show_polar(polar input) {
+	std::cout << "The distance is: "<<input.distance << std::endl;
+	std::cout << "The angle is: "<<input.angle << std::endl;
+}
