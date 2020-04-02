@@ -1,0 +1,22 @@
+#include<iostream>
+
+using namespace std;
+
+extern double warming;
+
+void update(double input);
+void local();
+
+void update(double input)
+{
+	extern double warming;
+	warming += input;
+	cout << "Updating global warming is to " << warming << " degrees." << endl;
+}
+
+void local()
+{
+	double warming = 0.8;
+	cout << "Local warming is to " << warming << " degrees." << endl;
+	cout << "But global warming is to " << ::warming << " degrees." << endl;
+}
