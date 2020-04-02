@@ -1,0 +1,17 @@
+#include<iostream>
+
+using namespace std;
+
+extern double warming;
+static char disk = 'b';
+int tom = 100;
+
+void remote_access();
+
+void remote_access()
+{
+	cout << "remote_access() reports the following addresses: " << endl;
+	cout << "warming = " << &warming << "   "
+		<< "disk = " << (int*)&disk << "   "
+		<< "tom = " << &tom << endl;
+}
