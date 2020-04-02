@@ -1,0 +1,50 @@
+#include<iostream>
+#include<new>
+
+using namespace std;
+
+const int num = 5;
+const int Buf = 512;
+char buffer[Buf];
+
+void main()
+{
+	double *p1, *p2;
+	p1 = new double[num];
+	p2 = new (buffer) double[num];
+	cout << "Calling new and placement new: \n";
+	cout << "Memory addresses: \n";
+	cout << "heap: " << p1 << " static: " << (void *)buffer << endl;
+	cout << "Memory contents: \n";
+	for (int i = 0; i < num; i++)
+		p1[i] = p2[i] = 1000 + 20.0*i;
+	for (int i = 0; i < num; i++)
+		cout << p1[i] << " at " << &p1[i] << "; "
+			<< p2[i] << " at " << &p2[i] << endl;
+	cout << endl;
+
+	double *p3, *p4;
+	p3 = new double[num];
+	p4 = new (buffer) double[num];
+	cout << "Memory contents: \n";
+	for (int i = 0; i < num; i++)
+		p3[i] = p4[i] = 1000 + 40.0*i;
+	for (int i = 0; i < num; i++)
+		cout << p3[i] << " at " << &p3[i] << "; "
+		<< p4[i] << " at " << &p4[i] << endl;
+	cout << endl;
+
+	delete[] p1;
+	p1 = new double[num];
+	p2 = new (buffer + num * sizeof(double)) double[num];
+	cout << "Memory contents: \n";
+	for (int i = 0; i < num; i++)
+		p1[i] = p2[i] = 1000 + 20.0*i;
+	for (int i = 0; i < num; i++)
+		cout << p1[i] << " at " << &p1[i] << "; "
+		<< p2[i] << " at " << &p2[i] << endl;
+	cout << endl;
+
+	delete[] p1;
+	delete[] p3;
+}
