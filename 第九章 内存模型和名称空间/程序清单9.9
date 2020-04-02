@@ -1,0 +1,36 @@
+#include<iostream>
+
+using namespace std;
+
+const int num = 10;
+
+void strcount(const char *str);
+
+void main()
+{
+	char arr[num];
+	char temp;
+	cout << "Enter a line: " << endl;
+	cin.get(arr, num);
+	while (cin) {
+		cin.get(temp);
+		while (temp != '\n')
+			cin.get(temp);
+		strcount(arr);
+		cout << "Enter an other line(enter line to quite): " << endl;
+		cin.get(arr, num);
+	}
+	cout << "Bey!\n";
+}
+
+void strcount(const char *arr)
+{
+	static int total = 0;
+	int count = 0;
+	cout << "\"" << arr << "\" contains: ";
+	while (*arr++)
+		++count;
+	total += count;
+	cout << count << " characters\n";
+	cout << total << " characters total\n";
+}
