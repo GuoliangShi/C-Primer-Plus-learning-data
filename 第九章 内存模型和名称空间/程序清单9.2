@@ -1,0 +1,17 @@
+//file.cpp
+#include<iostream>
+#include<cmath>
+#include"coordin.h"
+
+using namespace std;
+
+void main()
+{
+	rect exmp;
+	cout << "Please input x and y coorinary: " << endl;
+	while (cin >> exmp.x >> exmp.y) {
+		polar out = rect_polar(exmp);
+		show_polar(out);
+		cout << "Next two number:(q to quite)" << endl;
+	}
+}
