@@ -1,0 +1,21 @@
+#include<iostream>
+#include<string>
+#include"stock00.h"
+
+using namespace std;
+
+void main()
+{
+	Stock fluffy_the_cat;
+	fluffy_the_cat.acquire("NanoSmart", 20, 12.50);
+	fluffy_the_cat.show();
+	fluffy_the_cat.buy(100, 20.1);
+	fluffy_the_cat.show();
+	fluffy_the_cat.buy(-10, 20.3);
+	fluffy_the_cat.show();
+	fluffy_the_cat.sell(1000, 30);
+	fluffy_the_cat.show();
+	fluffy_the_cat.sell(100, 40.6);
+	fluffy_the_cat.update(12);
+	fluffy_the_cat.show();
+}
