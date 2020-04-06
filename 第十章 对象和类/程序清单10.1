@@ -1,0 +1,26 @@
+#pragma once
+#ifndef STOCK00_H_
+#define STOCK00_h_
+
+#include<iostream>
+#include<string>
+
+class Stock
+{
+public:
+	void acquire(const std::string &com, long n, double value);
+	void buy(long n, double value);
+	void sell(long n, double value);
+	void update(double price);
+	void show();
+
+private:
+	std::string company;
+	long shares;
+	double share_val;
+	double total_val;
+	void set_tot() { total_val = shares*share_val;}
+};
+
+
+#endif // !STOCK00_H_
