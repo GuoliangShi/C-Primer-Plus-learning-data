@@ -1,0 +1,87 @@
+#include<iostream>
+#include<string>
+#include"stock00.h"
+
+using namespace std;
+
+Stock::Stock(const std::string &com, long n, double value)
+{
+	cout << "Construtor using " << com << " called\n";
+	if (n < 0) {
+		cout << "Nerber of share can not be negative;"
+			<< company << " shares set to 0.\n";
+		shares = 0;
+	}
+	else {
+		company = com;
+		shares = n;
+		share_val = value;
+		set_tot();
+	}
+}
+
+Stock::Stock()
+{
+	cout << "Default construtor called\n";
+	company = "Non name";
+	shares = 0.0;
+	share_val = 0.0;
+	set_tot();
+}
+
+Stock::~Stock()
+{
+	cout << "Bye, " << company << endl;
+}
+
+void Stock::acquire(const std::string &com, long n, double value)
+{
+	company = com;
+	shares = n;
+	share_val = value;
+	set_tot();
+}
+
+void Stock::buy(long n, double value)
+{
+	if (n < 0) {
+		cout << "Number of shares can not be negative; "
+			<< company << " shares set to 0.\n";
+	}
+	else
+		shares += n;
+	share_val = value;
+	set_tot();
+}
+
+void Stock::sell(long n, double value)
+{
+	if (n < 0) {
+		cout << "Number of shares can not be negative; "
+			<< "Transaction is aborted.\n";
+	}
+	else if (n > shares)
+	{
+		cout << "You can not sell more than you have. "
+			<< "Transaction is aborted.\n";
+	}
+	else {
+		shares -= n;
+		share_val = value;
+		set_tot();
+	}
+}
+
+void Stock::update(double price)
+{
+	share_val = price;
+	set_tot();
+}
+
+void Stock::show()
+{
+	cout << "Company: " << company 
+		<< "  Share: " << shares << endl;
+	cout << "  Share Price: $" << share_val 
+		<< "  Total Worth: $" << total_val << endl;
+}
