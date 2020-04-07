@@ -1,0 +1,22 @@
+#pragma once
+#ifndef MYTIME0_H_
+#define MYTIME0_H_
+
+class Time
+{
+public:
+	Time();
+	Time(int h, int m = 0);
+	~Time();
+	void addMin(int m);
+	void addHr(int h);
+	void Reset(int h = 0, int m = 0);
+	Time Sum(Time &t) const;
+	void show() const;
+
+private:
+	int hour;
+	int minuter;
+};
+
+#endif // !MYTIME0_H_
