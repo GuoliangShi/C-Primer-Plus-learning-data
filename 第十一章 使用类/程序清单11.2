@@ -1,0 +1,52 @@
+#include<iostream>
+#include"mytime0.h"
+
+using namespace std;
+
+Time::Time()
+{
+	hour = minuter = 0;
+}
+
+Time::~Time()
+{
+	cout << "Delete object: " << hour <<endl;
+}
+
+Time::Time(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+void Time::addMin(int m)
+{
+	minuter += m;
+	hour += minuter / 60;
+	minuter = minuter % 60;
+}
+
+void Time::addHr(int h)
+{
+	hour += h;
+}
+
+void Time::Reset(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+Time Time::Sum(Time &t) const
+{
+	Time sum;
+	sum.minuter = this->minuter + t.minuter;
+	sum.hour = this->hour + t.hour + sum.minuter / 60;
+	sum.minuter = sum.minuter % 60;
+	return sum;
+}
+
+void Time::show() const
+{
+	cout << "Hour: " << hour << " Minuter: " << minuter ;
+}
