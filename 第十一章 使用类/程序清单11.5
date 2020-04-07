@@ -1,0 +1,47 @@
+#include<iostream>
+#include"mytime0.h"
+
+using namespace std;
+
+Time::Time()
+{
+	hour = minuter = 0;
+}
+
+Time::Time(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+void Time::addMin(int m)
+{
+	minuter += m;
+	hour += minuter / 60;
+	minuter = minuter % 60;
+}
+
+void Time::addHr(int h)
+{
+	hour += h;
+}
+
+void Time::Reset(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+Time Time::operator+(const Time &t) const
+{
+	Time sum;
+	sum.minuter = minuter + t.minuter;
+	sum.hour = hour + t.hour + sum.minuter / 60;
+	sum.minuter = sum.minuter % 60;
+	return sum;
+}
+
+void Time::show() const
+{
+	cout << "Hour: " << hour << " Minuter: " << minuter ;
+}
