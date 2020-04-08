@@ -1,0 +1,42 @@
+#include<iostream>
+#include"stonewt.h"
+
+using namespace std;
+
+int stone;
+double pds_left;
+double pounds;
+
+Stonewt::Stonewt(double lbs)
+{
+	stone = int(lbs) / lbs_per_stn;
+	pds_left = int(lbs) % lbs_per_stn + lbs - int(lbs);
+	pounds = lbs;
+}
+
+Stonewt::Stonewt(int stn, double lbs)
+{
+	pounds = stn*lbs_per_stn + lbs;
+	pds_left = lbs;
+	stone = stn;
+}
+
+Stonewt::Stonewt()
+{
+	pounds = pds_left = stone = 0;
+}
+
+Stonewt::~Stonewt()
+{
+
+}
+
+void Stonewt::show_lbs() const
+{
+	cout << pounds << " pounds\n";
+}
+
+void Stonewt::show_stn() const
+{
+	cout << stone << " stone, " << pds_left << " pounds\n";
+}
