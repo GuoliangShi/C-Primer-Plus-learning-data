@@ -1,0 +1,86 @@
+#include<iostream>
+#include"mytime0.h"
+
+using namespace std;
+
+Time::Time()
+{
+	hour = minuter = 0;
+}
+
+Time::Time(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+void Time::addMin(int m)
+{
+	minuter += m;
+	hour += minuter / 60;
+	minuter = minuter % 60;
+}
+
+void Time::addHr(int h)
+{
+	hour += h;
+}
+
+void Time::Reset(int h, int m)
+{
+	hour = h;
+	minuter = m;
+}
+
+Time Time::operator+(const Time &t) const
+{
+	Time sum;
+	sum.minuter = minuter + t.minuter;
+	sum.hour = hour + t.hour + sum.minuter / 60;
+	sum.minuter = sum.minuter % 60;
+	return sum;
+}
+
+void Time::show() const
+{
+	cout << "Hour: " << hour << " Minuter: " << minuter ;
+}
+
+Time Time::operator-(const Time &t) const
+{
+	Time out;
+	if (minuter < t.minuter && hour>0 ) {
+		out.hour = hour - 1 - t.hour;
+		out.minuter = 60 + minuter - t.minuter;
+	}
+	else if (hour >= t.hour&&minuter >= t.minuter) {
+		out.hour = hour - t.hour;
+		out.minuter = minuter - t.minuter;
+	}
+	else {
+		cout << "Not enough to reduce." << endl;
+		out.hour = hour;
+		out.minuter = minuter;
+	}
+	return out;
+}
+
+Time Time::operator*(double n) const
+{
+	Time out;
+	if (n < 0) {
+		cout << "n can not be a negtive number."
+			<< " set n =1;" << endl;
+		n = 1;
+	}
+	out.minuter = (hour * 60 + minuter)*n;
+	out.hour = out.minuter / 60;
+	out.minuter = out.minuter % 60;
+	return out;
+}
+
+ostream & operator<<(std::ostream &os, const Time &t)
+{
+	os << t.hour << " hours,    " << t.minuter << " minuters." << endl;
+	return os;
+}
