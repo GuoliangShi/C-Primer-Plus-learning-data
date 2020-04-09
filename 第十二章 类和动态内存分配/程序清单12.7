@@ -52,7 +52,7 @@ void main()
 		int choise = rand() % total;
 		String *favorite = new String(sayings[choise]);
 		cout << "My favorite saying: \n" << *favorite << endl;
-
+		delete favorite;
 		cout << "This program used " << String::HowMany()
 			<< " String objects. Bey.\n";
 	}
