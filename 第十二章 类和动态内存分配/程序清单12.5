@@ -1,0 +1,103 @@
+#include<cstring>
+#include"string1.h"
+
+using namespace std;
+
+int String::num_strings = 0;
+
+int String::HowMany()
+{
+	return num_strings;
+}
+
+String::String(const char* st)
+{
+	len = strlen(st);
+	str = new char[len + 1];
+	strcpy(str, st);
+	num_strings++;
+}
+
+String::String()
+{
+	len = 1;
+	str = new char[1];
+	str[0] = '\0';
+	num_strings++;
+}
+
+String::String(const String &st)
+{
+	len = st.len;
+	str = new char[len + 1];
+	strcpy(str, st.str);
+	num_strings++;
+}
+
+String::~String()
+{
+	--num_strings;
+	delete[] str;
+}
+
+String & String::operator=(const String &s)
+{
+	if (this == &s)
+		return *this;
+	delete[] str;
+	len = s.len;
+	str = new char[len + 1];
+	strcpy(str, s.str);
+	return *this;
+}
+
+String & String::operator=(const char* st)
+{
+	delete[] str;
+	len = strlen(st);
+	str = new char[len + 1];
+	strcpy(str, st);
+	return *this;
+}
+
+char & String::operator[](int i)
+{
+	return str[i];
+}
+
+const char & String::operator[](int i) const
+{
+	return str[i];
+}
+
+bool operator<(const String & s1, const String & s2)
+{
+	return (strcmp(s1.str, s2.str) < 0);
+}
+
+bool operator>(const String & s1, const String & s2)
+{
+	return (s2 < s1);
+}
+
+bool operator==(const String &s1, const String &s2)
+{
+	return(strcmp(s1.str, s2.str) == 0);
+}
+
+ostream & operator<<(ostream &os, const String &st)
+{
+	os << st.str;
+	return os;
+}
+
+istream & operator >> (istream &is, String &st)
+{
+	char temp[String::CINLIM];
+	is.get(temp, String::CINLIM);
+	if (is)
+		st = temp;
+	while (is&&is.get() != '\n')
+		continue;
+	return is;
+}
