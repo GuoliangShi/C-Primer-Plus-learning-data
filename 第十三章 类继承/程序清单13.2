@@ -1,0 +1,21 @@
+#include<iostream>
+#include<string>
+#include"tabtenn0.h"
+
+using namespace std;
+
+//TableTennisPlayer::TableTennisPlayer(const string & fn,
+//	const string & ln, bool ht)
+//{
+//	first_name = fn;
+//	last_name = ln;
+//	hasTable = ht;
+//}
+
+TableTennisPlayer::TableTennisPlayer(const string & fn,
+	const string & ln, bool ht):first_name(fn),last_name(ln),hasTable(ht){ }
+
+void TableTennisPlayer::Name() const
+{
+	cout << last_name << ", " << first_name;
+}
