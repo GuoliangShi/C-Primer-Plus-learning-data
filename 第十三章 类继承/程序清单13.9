@@ -1,0 +1,24 @@
+#include<iostream>
+#include<string>
+#include"brass.h"
+
+using namespace std;
+
+void main()
+{
+	Brass Piggy("Porcelot pigg", 381299, 4000.00);
+	BrassPlus Hoggy("Horatio Hogg", 382288, 3000.00);
+	Piggy.ViewAcct();
+	cout << endl;
+	Hoggy.ViewAcct();
+	cout << endl;
+	cout << "Depositing $1000 into the Hogg Account:\n";
+	Hoggy.Deposit(1000.00);
+	cout << "New balance: $" << Hoggy.Balance() << endl;
+	cout << "Withdraw $4200 from the Piggy account:\n";
+	Piggy.Withdraw(4200.00);
+	cout << "Piggy balance: $" << Piggy.Balance() << endl;
+	cout << "Withdraw $4200 from the Hoggy account:\n";
+	Hoggy.Withdraw(4200.00);
+	Hoggy.ViewAcct();
+}
