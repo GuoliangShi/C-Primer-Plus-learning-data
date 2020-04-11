@@ -1,0 +1,29 @@
+#include<iostream>
+#include"tabtenn0.h"
+
+using namespace std;
+
+void main()
+{
+	TableTennisPlayer player1("Tara", "Boomdea", false);
+	Ratedplayer replayer1(1140, "Mallory", "Duck", true);
+	replayer1.Name();
+	if (replayer1.HasTable())
+		cout << ": has a table.\n";
+	else
+		cout << ": has not a table.\n";
+	player1.Name();
+	if (player1.HasTable())
+		cout << ": has a table.\n";
+	else
+		cout << ": has not a table.\n";
+
+	cout << "Name: ";
+	replayer1.Name();
+	cout << " ;Rating: " << replayer1.Rating() << endl;
+
+	Ratedplayer replayer2(1212, player1);
+	cout << "Name: ";
+	replayer2.Name();
+	cout << " ;Rating: " << replayer2.Rating() << endl;
+}
