@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+void main()
+{
+	string one("Lottery winner!");
+	cout << one << endl;
+	string two(10, '$');
+	cout << two << endl;
+	string three(one);
+	cout << three << endl;
+	one += " Oops!";
+	cout << one << endl;
+	string four;
+	four = two + three;
+	string five(four, 10);
+	cout << five << endl;
+	char temp[] = "cwavavaefvaefvae";
+	string six(temp + 3, temp + 7);
+	cout << six << endl;
+	string seven(four, 3, 7);
+	cout << seven << endl;
+}
