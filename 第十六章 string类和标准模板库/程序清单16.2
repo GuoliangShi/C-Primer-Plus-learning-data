@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+
+using namespace std;
+
+void main()
+{
+	ifstream f;
+	f.open("C:\\Users\\13427\\Desktop\\test.txt");
+	if (f.is_open() == false) {
+		cout << "Can't opend file!\n";
+		exit(EXIT_FAILURE);
+	}
+	string temp;
+	int Cout = 0;
+	getline(f, temp, ':');
+	while (f) {
+		Cout++;
+		cout << Cout << ": " << temp << endl;
+		getline(f, temp, ':');
+	}
+	cout << "Done\n";
+	f.close();
+}
