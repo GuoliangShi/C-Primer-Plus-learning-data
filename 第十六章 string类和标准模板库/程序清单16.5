@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+#include<memory>
+
+using namespace std;
+
+class Repoter
+{
+private:
+	string str;
+public:
+	Repoter(const string s):str(s)
+	{
+		cout << "Object created!\n";
+	}
+	~Repoter() {
+		cout << "Object delete!\n";
+	}
+	void commen() const {
+		cout << str << endl;
+	}
+};
+
+void main()
+{
+	{
+		auto_ptr<Repoter> p1(new Repoter("Using auto_ptr!"));
+		p1->commen();
+	}
+	{
+		unique_ptr<Repoter> p2(new Repoter("Using unique_ptr!"));
+		p2->commen();
+	}
+	{
+		shared_ptr<Repoter> p3(new Repoter("Using shared_ptr!"));
+		p3->commen();
+	}
+}
