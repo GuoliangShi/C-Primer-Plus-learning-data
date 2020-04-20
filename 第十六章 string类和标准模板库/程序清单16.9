@@ -1,0 +1,81 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+
+using namespace std;
+
+struct Review
+{
+	string name;
+	int rating;
+};
+
+bool fillReview(Review &re);
+bool worseThan(const Review &re1, const Review &re2);
+bool operator<(const Review &re1, const Review &r2);
+void showReiew(const Review &re);
+
+void main()
+{
+	vector<Review> data;
+	Review temp;
+	while (fillReview(temp))
+		data.push_back(temp);
+	if (data.size() > 0) {
+		cout << "Thanks you for enter the " << data.size() << " ratings.\n";
+		for_each(data.begin(), data.end(), showReiew);
+
+		sort(data.begin(), data.end());
+		cout << "Sort by title: " << endl;
+		for_each(data.begin(), data.end(), showReiew);
+
+		sort(data.begin(), data.end(), worseThan);
+		cout << "Sort by rating: " << endl;
+		for_each(data.begin(), data.end(), showReiew);
+
+		random_shuffle(data.begin(), data.end());
+		cout << "After shuffle: " << endl;
+		for_each(data.begin(), data.end(), showReiew);
+	}
+	else
+	{
+		cout << "No entries. ";
+	}
+}
+
+bool fillReview(Review &re) {
+	cout << "Enter book title (quit to quit): ";
+	getline(cin, re.name);
+	if (re.name == "quit")
+		return false;
+	cout << "Enter book rating: ";
+	cin >> re.rating;
+	if (!cin)
+		return false;
+	while (cin.get() != '\n')
+		continue;
+}
+
+bool worseThan(const Review &re1, const Review &re2)
+{
+	if (re1.rating < re2.rating)
+		return true;
+	else
+		return false;
+}
+
+bool operator<(const Review &re1, const Review &re2)
+{
+	if (re1.name < re2.name)
+		return true;
+	else if (re1.name == re2.name && re1.rating < re2.rating)
+		return true;
+	else
+		return false;
+}
+
+void showReiew(const Review &re)
+{
+	cout << re.name << "\t" << re.rating << endl;
+}
