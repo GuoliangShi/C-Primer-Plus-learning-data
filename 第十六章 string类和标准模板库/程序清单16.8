@@ -1,0 +1,67 @@
+#include<iostream>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+struct Review
+{
+	string name;
+	int rating;
+};
+
+bool fillReview(Review &re);
+void showReview(const Review &re);
+
+void main()
+{
+	vector<Review> data;
+	Review temp;
+	while (fillReview(temp)) {
+		data.push_back(temp);
+	}
+	int num = data.size();
+	if (num > 0) {
+		cout << "Thanks you, your enter following:\n";
+		cout << "Rating\tBook\n";
+		for (int i = 0; i < num; i++)
+			cout << data[i].rating << "\t" << data[i].name << endl;
+		vector<Review>::iterator pt;
+		cout << "Reprising" << endl;
+		cout << "Rating\tBook\n";
+		for (pt = data.begin(); pt != data.end(); pt++)
+			cout << (*pt).rating << "\t" << (*pt).name << endl;
+		if (num > 3) {
+			cout << "After erasure: \n";
+			data.erase(data.begin() + 1, data.begin() + 3);
+			for (pt = data.begin(); pt != data.end(); pt++)
+				cout << (*pt).rating << "\t" << (*pt).name << endl;
+			cout << "After insert: \n";
+			vector<Review> new_data(data);
+			data.insert(data.begin(), new_data.begin() + 1, new_data.begin() + 2);
+			for (pt = data.begin(); pt != data.end(); pt++)
+				cout << (*pt).rating << "\t" << (*pt).name << endl;
+			cout << "After swap: \n";
+			data.swap(new_data);
+			for (pt = data.begin(); pt != data.end(); pt++)
+				cout << (*pt).rating << "\t" << (*pt).name << endl;
+		}
+	}
+	else
+		cout << "nothing enter, nothing gained!\n";
+}
+
+bool fillReview(Review &re)
+{
+	cout << "Enter book title (quit to quit): ";
+	getline(cin, re.name);
+	if (re.name == "quit")
+		return false;
+	cout << "Enter book rating: ";
+	cin >> re.rating;
+	if (!cin)
+		return false;
+	while (cin.get() != '\n')
+		continue;
+	return true;
+}
