@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string>
+#include<memory>
+#include<ctime>
+#include<vector>
+
+using namespace std;
+
+const int NUM = 10;
+
+unique_ptr<int> make_it(int i)
+{
+	return unique_ptr<int>(new int(i));
+}
+
+void show(unique_ptr<int> &a)
+{
+	cout << *a << endl;
+}
+
+void main()
+{
+	srand(time(0));
+	vector<unique_ptr<int>> data(NUM);
+	for (int i = 0; i < data.size(); i++)
+		data[i] = make_it(rand() % 1000);
+	data.push_back(make_it(rand() % 1000));
+	for (int j = 0; j < data.size(); j++)
+		show(data[j]);
+}
