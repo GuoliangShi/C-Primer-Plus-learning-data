@@ -1,0 +1,31 @@
+#include<iostream>
+#include<vector>
+#include<valarray>
+
+using namespace std;
+
+void main()
+{
+	vector<double> data;
+	cout << "Enter numbers ( <= 0 to quite: )\n";
+	double temp;
+	while (cin >> temp&&temp > 0) {
+		data.push_back(temp);
+	}
+	int size = data.size();
+	valarray<double> number(size);
+	for (int i = 0; i < size; i++)
+		number[i] = data[i];
+	valarray <double> sqr_rts(size);
+	sqr_rts = sqrt(number);
+	valarray<double> result(size);
+	result = number + 2.0*sqr_rts;
+	cout.setf(ios_base::fixed);
+	cout.precision(4);
+	for (int j = 0; j < size; j++) {
+		cout.width(8);
+		cout << number[j] << ": ";
+		cout.width(8);
+		cout << result[j] << endl;
+	}
+}
